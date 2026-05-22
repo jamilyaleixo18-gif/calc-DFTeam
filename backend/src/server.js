@@ -40,6 +40,10 @@ const ALLOWED_ORIGINS = [
 app.use(cors({ origin: (origin, cb) => (!origin || ALLOWED_ORIGINS.includes(origin) ? cb(null, true) : cb(new Error("CORS bloqueado"))) }));
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+  res.json({ ok: true, hasKey: !!process.env.ANTHROPIC_API_KEY });
+});
+
 app.post("/api/chat", async (req, res) => {
   try {
     const { messages } = req.body;
