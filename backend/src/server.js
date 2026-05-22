@@ -3,6 +3,7 @@ import cors from "cors";
 import Anthropic from "@anthropic-ai/sdk";
 
 const app = express();
+console.log("ANTHROPIC_API_KEY definida:", !!process.env.ANTHROPIC_API_KEY);
 const getClient = () => new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const SYSTEM_PROMPT = `Você é um assistente nutricional especializado. Você tem dois modos de operação:
