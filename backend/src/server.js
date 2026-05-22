@@ -3,7 +3,7 @@ import cors from "cors";
 import Anthropic from "@anthropic-ai/sdk";
 
 const app = express();
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const getClient = () => new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const SYSTEM_PROMPT = `Você é um assistente nutricional especializado. Você tem dois modos de operação:
 
@@ -52,7 +52,7 @@ app.post("/api/chat", async (req, res) => {
       .filter((m) => m.role === "user" || messages.indexOf(m) > 0)
       .map((m) => ({ role: m.role, content: m.content }));
 
-    const response = await client.messages.create({
+    const response = await getClient().messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 2048,
       system: SYSTEM_PROMPT,
