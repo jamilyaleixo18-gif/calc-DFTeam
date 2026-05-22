@@ -30,6 +30,16 @@ cd backend && npm install
 cd ../frontend && npm install
 ```
 
+## Build de produção (frontend)
+
+Na raiz do projeto:
+
+```bash
+npm run build
+```
+
+Gera os arquivos em `frontend/dist/`.
+
 ## Executar em desenvolvimento
 
 Terminal 1 (backend):
