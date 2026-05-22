@@ -1,0 +1,27 @@
+export const FONT_FAMILY = "'Cormorant Garamond', Georgia, serif";
+
+export const FONT_SIZE = {
+  sm: "15px",
+  base: "17px",
+  lg: "20px",
+  xl: "22px",
+};
+
+export const BRAND = {
+  primary: "#6A3FAB",
+  primaryDark: "#5A3691",
+  primaryLight: "#7B56B6",
+};
+
+export const SUGGESTIONS = [
+  "Tenho frango, brócolis e batata-doce. Que prato posso fazer?",
+  "Substituir 200g de carne bovina por quê?",
+  "Ingredientes: ovo, espinafre, azeite e alho",
+  "Substituir 1 xícara de arroz branco",
+];
+
+export const INITIAL_MESSAGE = {
+  role: "assistant",
+  content:
+    "Olá, sou a assistente DF Muses!\nPosso te ajudar de duas formas:\n• Informe os ingredientes que você tem em casa e sugiro pratos para preparar\n• Informe um alimento e a quantidade (ex: 200g de frango) e indico substituições equivalentes\nComo posso te ajudar hoje?",
+};

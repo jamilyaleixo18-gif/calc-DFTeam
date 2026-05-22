@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+
+# Segredos e ambiente local
+.env
+.env.*
+!.env.example
+
+# Cache e logs
+.npm-cache/
+*.log
+
+# Sistema e IDE
+.DS_Store
+.claude/
+
+# Build
+dist/
+build/
