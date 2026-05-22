@@ -31,7 +31,13 @@ Nome do substituto especificado | XXX g
 
 Detecte automaticamente qual modo usar com base na mensagem do usuário. Responda sempre em português, de forma clara e prática. Use formatação com marcadores para facilitar a leitura. Seja direto e objetivo.`;
 
-app.use(cors({ origin: "http://localhost:5173" }));
+const ALLOWED_ORIGINS = [
+  "http://localhost:5173",
+  "https://chat.danielfabiocruz.com",
+  "https://danielfabiocruz.com",
+  "https://www.danielfabiocruz.com",
+];
+app.use(cors({ origin: (origin, cb) => (!origin || ALLOWED_ORIGINS.includes(origin) ? cb(null, true) : cb(new Error("CORS bloqueado"))) }));
 app.use(express.json());
 
 app.post("/api/chat", async (req, res) => {
